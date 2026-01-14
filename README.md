@@ -1,25 +1,29 @@
-# 🇰🇪 MedusaJS M-Pesa Payment Provider
+# 🇰🇪 ERPNext Kenya Tax Compliance (eTIMS)
 
-[![Medusa Plugin](https://img.shields.io/badge/Medusa-Plugin-orange?style=flat-square)](https://medusajs.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Frappe App](https://img.shields.io/badge/Frappe-App-blue?style=flat-square)](https://frappeframework.com/)
+[![KRA eTIMS](https://img.shields.io/badge/KRA-eTIMS--Ready-green?style=flat-square)](https://www.kra.go.ke/)
 
-A high-performance payment provider for [MedusaJS](https://medusajs.com/) that integrates **Safaricom M-Pesa (Daraja API)**. This plugin enables Kenyan merchants to accept mobile money payments via STK Push directly on their storefront.
+This Frappe/ERPNext application provides a seamless integration between your ERP system and the **Kenya Revenue Authority (KRA) eTIMS** platform. It automates the legal requirement of transmitting electronic tax invoices via the Virtual Sales Control Unit (VSCU) or Online Sales Control Unit (OSCU).
 
 ---
 
 ## 🚀 Key Features
-- **STK Push (Lipa Na M-Pesa Online):** Triggers an immediate PIN prompt on the customer's phone.
-- **Real-time Callbacks:** Securely handles transaction confirmation via Safaricom webhooks.
-- **Automatic Reconciliation:** Automatically marks Medusa orders as "Paid" upon successful transaction.
-- **Sandbox & Production Ready:** Easily toggle between Safaricom's testing environment and live credentials.
+- **Real-time Invoicing:** Automatically pushes Sales Invoices to eTIMS upon submission in ERPNext.
+- **QR Code Generation:** Fetches the unique KRA signature and embeds the mandatory QR code on print formats.
+- **Item Synchronization:** Maps ERPNext item codes to KRA's HS Codes/UNSPSC standards.
+- **Error Logs & Reconciliation:** Tracks failed transmissions with detailed KRA response codes for easy troubleshooting.
+- **Credit/Debit Note Support:** Full compliance for adjustments and returns.
 
 ## 🛠️ Technical Stack
-- **Backend:** Node.js, TypeScript
-- **Framework:** MedusaJS (Commerce Engine)
-- **API:** Safaricom Daraja API (REST)
+- **Framework:** Frappe Framework (Python/JS)
+- **Base App:** ERPNext
+- **API:** KRA GavaConnect / eTIMS VSCU API
 
 ## 📦 Installation
 
-1. **Install the package:**
-   ```bash
-   npm install medusa-payment-mpesa
+To install this module on your Frappe bench:
+
+```bash
+bench get-app [https://github.com/nyoikepaul/erpnext-kenya-compliance](https://github.com/nyoikepaul/erpnext-kenya-compliance)
+bench --site [your-site-name] install-app erpnext-kenya-compliance
+bench migrate
